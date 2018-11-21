@@ -1,0 +1,36 @@
+#N canvas 349 743 1456 1125 10;
+#X obj 76 205 ~/Dropbox/teaching/tech-in-perf/gesture/workshop/Pd_HID_wrapper/osc_wrapper
+;
+#X text 410 215 Change this to your corect path;
+#X text 339 166 The right inlet is port. The default is 57120 You probably
+don't need to change this.;
+#X msg 25 26 info;
+#X msg 78 136 close;
+#X text 70 15 Find out the IDs of all attached HIDs;
+#X obj 78 59 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X floatatom 83 80 5 0 0 0 - - -, f 5;
+#X msg 66 109 open \$1;
+#X text 128 80 Once you know the ID number \, select it here;
+#X obj 385 265 print info;
+#X obj 18 283 list split 1;
+#X floatatom -7 377 5 0 0 0 - - -, f 5;
+#X floatatom 48 326 5 0 0 0 - - -, f 5;
+#X text 94 326 value;
+#X text 39 376 ID;
+#X obj 150 323 route 0 1 3 4;
+#X text 231 324 On one controller \, these are the stick IDs;
+#X obj 242 373 route 6 7 8 9 10 11 12 13;
+#X text 403 372 These are the buttons;
+#X text 239 346 Last outlet is if no match;
+#X connect 0 0 11 0;
+#X connect 0 0 16 0;
+#X connect 0 1 10 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 16 4 18 0;
